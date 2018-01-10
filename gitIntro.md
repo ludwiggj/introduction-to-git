@@ -171,13 +171,11 @@ See [Understanding Version-Control Systems](http://www.catb.org/esr/writings/ver
 
 ## init = "git, track all changes in this directory (top3films), and all subdirectories"
 
-```
-$ mkdir top3films
+    $ mkdir top3films
  
-$ cd top3films
+    $ cd top3films
   
-$ git init
-```
+    $ git init
 
 > Initialized empty Git repository in top3films/.git/
 ^
@@ -261,11 +259,9 @@ Edit the file and add your favourite film ONLY (i.e. only 1 film)...
 
 ## git add = "Include the changes in this file."
 
-```
-$ git add top3films.txt
+    $ git add top3films.txt
  
-$ git status
-```
+    $ git status
 
 > On branch master
 > Initial commit
@@ -286,15 +282,11 @@ The two key items to configure are:
 
 * User name e.g.
 
-```
-git config --global user.name "alice"
-```
+    $ git config --global user.name "alice"
 
 * User email address e.g.
 
-```
-git config --global user.email "alice@training.com"
-```
+    $ git config --global user.email "alice@training.com"
 
 These are important as git uses them to mark your commits, so that others can see who made the change.
 
@@ -379,11 +371,9 @@ Edit the top3films.txt file, and add a second film choice
 > 	modified:   top3films.txt
 ^
 
-```
-$ git add top3films.txt
+    $ git add top3films.txt
 
-$ git status
-```
+    $ git status
 
 > On branch master
 > Changes to be committed:
@@ -567,7 +557,7 @@ The git history of the repo you'll be working on shortly is:
     $ git log --graph --decorate --pretty=oneline --abbrev-commit
 
 > 3fa219c (HEAD -> master, origin/master, origin/HEAD) Updated log command with --graph option
-> 04127bc (HEAD -> master, origin/master, origin/HEAD) Added useful stuff to readme
+> 04127bc Added useful stuff to readme
 > 7f03f5e Added sports news of the day
 > 19b90f4 Added the head's choice of sequel to remake
 > 876d2fa Start of issue 251
@@ -661,7 +651,7 @@ Start with the top3 films repo created on a local machine in session 1.
     $ git log --graph --decorate --pretty=oneline --abbrev-commit
 
 > 3fa219c (HEAD -> master, origin/master, origin/HEAD) Updated log command with --graph option
-> 04127bc (HEAD -> master, origin/master, origin/HEAD) Added useful stuff to readme
+> 04127bc Added useful stuff to readme
 > 7f03f5e Added sports news of the day
 > 19b90f4 Added the head's choice of sequel to remake
 > 876d2fa Start of issue 251
@@ -775,22 +765,27 @@ Difference comes with sending files to, getting files from, the remote repo.
 
 -> # Alice Cloning a Repo <-
 
-```
-$ git clone git@gitlab.server.com:training/git-practice-alice-bob.git
-```
+    $ git clone git@gitlab.server.com:training/git-practice-alice-bob.git
 
 * This creates directory git-practice-alice-bob.
 ^
 
-```
-$ cd git-practice-alice-bob
+    $ cd git-practice-alice-bob
  
-$ ls -l (list of files, plus special .git)
-```
+    $ ls -l (list of files, plus special .git)
 
 > drwxr-xr-x  15 alice  staff   510 25 Oct 16:08 .git
 > -rw-r--r--   1 alice  staff  4032 25 Oct 15:46 README.md
 > -rw-r--r--   1 alice  staff  1237 25 Oct 10:01 issue251.txt
+^
+
+Cloning automatically sets up the remote. Since git knows where the cloned repo came from,
+it assumes that you'll want to push changes back to the same remote repo:
+
+    $ git remote -v
+
+> origin	git@gitlab.nat.bt.com:training/git-practice-alice-bob.git (fetch)
+> origin	git@gitlab.nat.bt.com:training/git-practice-alice-bob.git (push)
 
 -------------------------------------------------
 
@@ -799,7 +794,7 @@ $ ls -l (list of files, plus special .git)
     $ git log --graph --decorate --pretty=oneline --abbrev-commit
 
 > 3fa219c (HEAD -> master, origin/master, origin/HEAD) Updated log command with --graph option
-> 04127bc (HEAD -> master, origin/master, origin/HEAD) Added useful stuff to readme
+> 04127bc Added useful stuff to readme
 > 7f03f5e Added sports news of the day
 > 19b90f4 Added the head's choice of sequel to remake
 > 876d2fa Start of issue 251
@@ -850,9 +845,7 @@ Initial state; ![SLIDE_08 Github step 0](screenshots/08_github_step0.png "Github
 
 * _Bob_ need to pull _Alice's_ changes:
    
-```
-$ git pull
-```
+    $ git pull
 
 * This pulls the change, and reapplies the new change (sports result) on top.
 
